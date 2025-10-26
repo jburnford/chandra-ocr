@@ -18,7 +18,7 @@ def load_image(filepath: str):
     if image.width < settings.MIN_IMAGE_DIM or image.height < settings.MIN_IMAGE_DIM:
         scale = settings.MIN_IMAGE_DIM / min(image.width, image.height)
         new_size = (int(image.width * scale), int(image.height * scale))
-        image = image.resize(new_size, Image.LANCZOS)
+        image = image.resize(new_size, Image.Resampling.LANCZOS)
     return image
 
 

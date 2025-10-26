@@ -71,6 +71,8 @@ def parse_html(
             else:
                 img = BeautifulSoup(f"<img src='{img_src}'/>", "html.parser")
                 div.append(img)
+
+        # Wrap text content in <p> tags if no inner HTML tags exist
         if label in ["Text"] and not re.search(
             "<.+>", str(div.decode_contents()).strip()
         ):
