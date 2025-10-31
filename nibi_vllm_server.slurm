@@ -30,7 +30,7 @@ echo ""
 
 # Load modules
 module load python/3.12
-module load cuda/12.1
+module load cuda/12.2
 module load apptainer
 
 # Configuration

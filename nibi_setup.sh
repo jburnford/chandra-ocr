@@ -11,7 +11,7 @@ echo "=== Setting up Chandra OCR on Nibi cluster ==="
 # Load modules
 echo "Loading required modules..."
 module load python/3.12
-module load cuda/12.1
+module load cuda/12.2
 
 # Create virtual environment
 echo "Creating virtual environment..."
@@ -25,8 +25,8 @@ echo "Upgrading pip..."
 pip install --upgrade pip setuptools wheel
 
 # Install PyTorch with CUDA support
-echo "Installing PyTorch with CUDA 12.1 support..."
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+echo "Installing PyTorch with CUDA 12.2 support..."
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
 
 # Install Chandra from source
 echo "Installing Chandra OCR and dependencies..."
