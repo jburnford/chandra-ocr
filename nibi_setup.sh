@@ -31,7 +31,13 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
 # Install Chandra from source
 echo "Installing Chandra OCR and dependencies..."
 cd ~/projects/def-jic823/chandra-ocr
-pip install -e .
+# Skip hf-xet which requires Rust compiler (optional dependency)
+pip install -e . --no-deps
+# Now install dependencies individually, skipping hf-xet
+pip install beautifulsoup4>=4.14.2 click>=8.0.0 filetype>=1.2.0 flask>=3.0.0 \
+    markdownify==1.1.0 openai>=2.2.0 pillow>=10.2.0 pydantic>=2.12.0 \
+    pydantic-settings>=2.11.0 pypdfium2>=4.30.0 python-dotenv>=1.1.1 \
+    qwen-vl-utils>=0.0.14 transformers>=4.57.1 streamlit>=1.50.0 accelerate>=1.11.0
 
 # Install flash-attention for better performance (optional but recommended)
 echo "Installing flash-attention (this may take a while)..."
