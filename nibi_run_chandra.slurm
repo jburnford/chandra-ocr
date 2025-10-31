@@ -32,6 +32,7 @@ echo ""
 # Load modules
 module load python/3.12
 module load cuda/12.2
+module load gcc arrow/18.0.0
 
 # Activate virtual environment
 source ~/projects/def-jic823/chandra-ocr/.venv/bin/activate

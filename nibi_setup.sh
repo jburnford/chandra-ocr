@@ -12,6 +12,7 @@ echo "=== Setting up Chandra OCR on Nibi cluster ==="
 echo "Loading required modules..."
 module load python/3.12
 module load cuda/12.2
+module load gcc arrow/18.0.0
 
 # Create virtual environment
 echo "Creating virtual environment..."
