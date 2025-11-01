@@ -39,8 +39,8 @@ python3 -c "import torch; print(f'PyTorch version: {torch.__version__}'); print(
 echo ""
 
 # Configuration
-INPUT_DIR="~/ocr_bldata/25439023/BLN600/pdf"
-OUTPUT_DIR="~/projects/def-jic823/british_library_output"
+INPUT_DIR="/home/jic823/ocr_bldata/25439023/BLN600/pdf"
+OUTPUT_DIR="/home/jic823/projects/def-jic823/british_library_output"
 METHOD="hf"
 MAX_TOKENS="12384"
 BATCH_SIZE="1"
