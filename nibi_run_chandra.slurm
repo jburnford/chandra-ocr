@@ -34,6 +34,11 @@ module load python/3.12
 module load cuda/12.2
 module load gcc arrow/18.1.0
 
+# Set HuggingFace cache to project space (home directory has limited quota)
+export HF_HOME=~/projects/def-jic823/.cache/huggingface
+export TRANSFORMERS_CACHE=~/projects/def-jic823/.cache/huggingface
+mkdir -p $HF_HOME
+
 # Activate virtual environment
 source ~/projects/def-jic823/chandra-ocr/.venv/bin/activate
 
