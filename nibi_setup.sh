@@ -44,6 +44,10 @@ pip install beautifulsoup4>=4.14.2 click>=8.0.0 filetype>=1.2.0 flask>=3.0.0 \
 echo "Installing flash-attention (this may take a while)..."
 pip install flash-attn --no-build-isolation || echo "Warning: flash-attention installation failed, continuing without it"
 
+# Reinstall correct torch/torchvision versions after flash-attn downgrades them
+echo "Ensuring correct PyTorch version..."
+pip install --force-reinstall --no-deps torch torchvision --index-url https://download.pytorch.org/whl/cu124
+
 echo ""
 echo "=== Setup complete! ==="
 echo ""
