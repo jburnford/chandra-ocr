@@ -19,6 +19,8 @@
 #   PAGE_RANGE: e.g., "1-5,7,9-12" - default: all pages
 #   MAX_TOKENS: max output tokens per page - default: 12384
 #   INCLUDE_IMAGES: true/false - default: true
+#   INCLUDE_HEADERS_FOOTERS: true/false - default: true (include headers/footers)
+#   PAGINATE_OUTPUT: true/false - default: true (insert page separators)
 #   BATCH_SIZE: pages per batch - default: 1
 
 set -e
@@ -56,6 +58,8 @@ METHOD="${METHOD:-hf}"
 PAGE_RANGE="${PAGE_RANGE:-}"
 MAX_TOKENS="${MAX_TOKENS:-12384}"
 INCLUDE_IMAGES="${INCLUDE_IMAGES:-true}"
+INCLUDE_HEADERS_FOOTERS="${INCLUDE_HEADERS_FOOTERS:-true}"
+PAGINATE_OUTPUT="${PAGINATE_OUTPUT:-true}"
 BATCH_SIZE="${BATCH_SIZE:-1}"
 
 echo "Configuration:"
@@ -65,6 +69,8 @@ echo "  Method: $METHOD"
 echo "  Page Range: ${PAGE_RANGE:-all}"
 echo "  Max Tokens: $MAX_TOKENS"
 echo "  Include Images: $INCLUDE_IMAGES"
+echo "  Include Headers/Footers: $INCLUDE_HEADERS_FOOTERS"
+echo "  Paginate Output: $PAGINATE_OUTPUT"
 echo "  Batch Size: $BATCH_SIZE"
 echo ""
 
@@ -82,6 +88,16 @@ if [ "$INCLUDE_IMAGES" = "true" ]; then
     CMD="$CMD --include-images"
 else
     CMD="$CMD --no-images"
+fi
+
+if [ "$INCLUDE_HEADERS_FOOTERS" = "true" ]; then
+    CMD="$CMD --include-headers-footers"
+else
+    CMD="$CMD --no-headers-footers"
+fi
+
+if [ "$PAGINATE_OUTPUT" = "true" ]; then
+    CMD="$CMD --paginate_output"
 fi
 
 # Run Chandra
